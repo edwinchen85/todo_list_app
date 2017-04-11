@@ -60,6 +60,12 @@
         }
 
         var listItems = todoEntries.map(createTasks);
+
+        return (
+          <ul className="theList">
+            {listItems}
+          </ul>
+        );
       }
     });
 
