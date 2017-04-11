@@ -94,6 +94,11 @@
         e.preventDefault();
         var itemArray = this.state.items;
 
+        // If input value is empty, bypass following code
+        if( this._inputElement.value == "" ) {
+          return;
+        }
+
         itemArray.push({
           text: this._inputElement.value,
           key: Date.now()
