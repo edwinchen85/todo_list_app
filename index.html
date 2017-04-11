@@ -27,11 +27,15 @@
     .todoListMain .header button {
       padding: 10px 20px;
       font-size: 16px;
-      margin: 10px;
+      margin-left: 10px;
       background-color: #1C8EFC;
       color: #FFF;
       border: 0;
       transition: background .3s ease-out;
+    }
+
+    .todoListMain .header button + button {
+      background-color: #F66;
     }
 
     .todoListMain .header button:hover {
@@ -39,10 +43,14 @@
       cursor: pointer;
     }
 
+    .todoListMain .header button + button:hover {
+      background-color: #F36;
+    }
+
     .todoListMain .theList {
       list-style: none;
       padding-left: 0;
-      width: 348px;
+      width: 436px;
     }
 
     .todoListMain .theList li {
@@ -109,6 +117,10 @@
         this._inputElement.value = "";
       },
 
+      handleClear: function() {
+        this.setState({items: []});
+      },
+
       render: function() {
         return (
           <div className="todoListMain">
@@ -116,6 +128,7 @@
               <form onSubmit={this.addItem}>
                 <input ref={ (text) => this._inputElement = text } placeholder="Enter task" />
                 <button type="submit">Add</button>
+                <button onClick={this.handleClear}>Clear</button>
               </form>
             </div>
             <TodoItems entries={this.state.items} />
