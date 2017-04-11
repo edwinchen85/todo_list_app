@@ -56,13 +56,17 @@
         return {
           items: []
         };
-      }
+      },
+
+      addItem: function(e) {
+
+      },
 
       render: function() {
         return (
           <div className="todoListMain">
             <div className="header">
-              <form>
+              <form onSubmit={this.addItem}>
                 <input placeholder="Enter task" />
                 <button type="submit">Add</button>
               </form>
